@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+        {% block title %}SingGoals{% endblock %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
+{% endblock %}
+{% block content %}
+<div id="page-wrapper">
+            <header id="header">
+                <h1><a href="{% url 'home' %}">SingGoals</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li>
+                            <button>Save</button>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+	<article id="main">
+	    <header>
+	        <!--GET COMPANY NAME AND DESCRIPTION FROM DB-->
+	        <h2>Artist Name</h2>
+	        <p>Artist Brief Description</p>
+	    </header>
+	<section class="wrapper style4">
+	<div class="inner">
+			<form action="{% url 'upload_info' %}" method="POST">
+				{% csrf_token %}
+				<input type="text" name="name" placeholder="Musician/Band Name">
+				<input type="text" name="genre" placeholder="Genre">
+				<input type="text" name="contact" placeholder="Contact Number">
+				<input type="text" name="address" placeholder="Address">
+				<input type="text" name="email" placeholder="E-mail">
+				<input type="text" name="payment" placeholder="Price/Rate">
+				<button>POST REQUEST</button>
+			</form>
+	</div>
+	</section>
+	</article>
+</div>
+{% endblock %}

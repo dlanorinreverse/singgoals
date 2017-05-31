@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+        {% block title %}SingGoals{% endblock %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
+{% endblock %}
+{% block content %}
+ <script src="{% static 'user/assets/js/adjustTA.js' %}"></script>
+             <header id="header">
+                <h1><a href="{% url 'home' %}">SingGoals</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                                <div id="menu">
+                                        <ul>
+                                            <li><a href="{% url 'home' %}">Home</a></li>
+                                            {% if user.is_authenticated %}
+                                            <li><a href="{% url 'to_upload_info' %}" name="addinfo">Be Hired</a></li>
+                                            <li><a href="{% url 'sign_out' %}" name="sign-out">Signout</a></li>
+                                            {% else %}
+                                            <li><a href="{% url 'sign_in' %}" name="sign-in">Log-in</a></li>
+                                            <li><a href="{% url 'sign_up' %}" name="sign-up">Sign-up</a></li>
+                                            {% endif %}
+                                        </ul>
+                                </div>    
+                        </li>
+                    </ul>
+                </nav>
+            </header>   
+
+            <article id="main">
+                <header>
+                    <p>Browse for different artists</p>
+                </header>
+            {% if user.is_authenticated %}                
+                <section class="wrapper style4">
+                    {% for info in user_info %}
+                    <div class= "inner">
+                        <div>
+                            <textarea readonly>
+                            {{ info.musician_name }}
+                            {{ info.musician_genre }}
+                            {{ info.musician_name }}
+                            {{ info.musician_contactNumber }}
+                            {{ info.musician_address }}
+                            {{ info.musician_priceRate }}
+                            </textarea>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </section>
+                
+            </article>
+            {% endif %}
+            
+        </div>
+    </div>
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+        <script src="{% static 'assets/js/skel.min.js' %}"></script>
+        <script src="{% static 'assets/js/util.js' %}"></script>
+        <script src="{% static 'assets/js/main.js' %}"></script>
+        <script src="{% static 'assets/jqBootstrapValidation.js' %}"></script>
+{% endblock %}
