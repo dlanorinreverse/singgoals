@@ -1,19 +1,19 @@
 # singgoals
 
 # Sign in page
-![signin](/images/signinpage?raw=true)
+![signin](images/signinpage?raw=true)
 
 # Sign up page
-![signin](/images/signuppage?raw=true)
+![signin](images/signuppage?raw=true)
 
 # Homepage
-![home](/images/homepage?raw=true)
+![home](images/homepage?raw=true)
 
 # Post Info
-![details](/images/uploadinfo?raw=true)
+![details](images/uploadinfo?raw=true)
 
 # Menu bar if authenticated
-![details](/images/menubarifauthenticated?raw=true)
+![details](images/menubarifauthenticated?raw=true)
 
 # Menu bar if not authenticated
-![details](/images/menubarifnotauthenticated?raw=true)
+![details](images/menubarifnotauthenticated?raw=true)
